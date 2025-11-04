@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Busy Hands - Our Projects</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .headings {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  /* Busy Hands gradient text */
+  .gradient-text {
+    background: linear-gradient(to right, #1f2937, #4b5563);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: lowercase;
+  }
+
+  /* Header and shrink effect */
+  header {
+    transition: all 0.5s ease-in-out;
+  }
+  header.shrink {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Logo adjustments */
+  .logo-img {
+    height: 2.5rem;
+    width: auto;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Mobile menu animation */
+  .mobile-menu {
+    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .mobile-menu.open {
+    max-height: 500px;
+  }
+
+  /* Glass card style */
+  .glass {
+    backdrop-filter: blur(8px) saturate(180%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Responsive image scaling */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Header -->
+<header id="main-header" class="bg-white text-black py-4 shadow-lg sticky top-0 z-50 transition-all duration-500 ease-in-out">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center">
+      <!-- Logo and text -->
+      <div class="flex items-center space-x-3">
+        <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="logo-img" />
+        <h1 class="text-2xl sm:text-3xl font-extrabold gradient-text headings">busy hands</h1>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden flex items-center px-3 py-2 border rounded text-black border-black hover:text-gray-600 hover:border-gray-600">
+        <svg class="fill-current h-5 w-5" viewBox="0 0 20 20">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:block mt-2">
+      <ul class="flex space-x-6 font-semibold text-base justify-center sm:justify-end">
+        <li><a href="index.html" class="hover:text-gray-500 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-gray-500 transition">About</a></li>
+        <li><a href="services.html" class="hover:text-gray-500 transition">Services</a></li>
+        <li><a href="projects.html" class="hover:text-gray-500 transition">Projects</a></li>
+        <li><a href="contact.html" class="hover:text-gray-500 transition">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-200">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="index.html" class="block nav-link text-black hover:bg-gray-100 rounded-md">Home</a>
+        <a href="about.html" class="block nav-link text-black hover:bg-gray-100 rounded-md">About</a>
+        <a href="services.html" class="block nav-link text-black hover:bg-gray-100 rounded-md">Services</a>
+        <a href="projects.html" class="block nav-link text-black hover:bg-gray-100 rounded-md">Projects</a>
+        <a href="contact.html" class="block nav-link text-black hover:bg-gray-100 rounded-md">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Projects Section -->
+<section class="container mx-auto py-8 sm:py-12 px-4">
+  <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 text-center text-gray-800 headings" data-aos="fade-up">Our Projects</h2>
+
+  <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3" data-aos="fade-up" data-aos-delay="200">
+    <!-- Project Card 1 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="overflow-hidden rounded-xl mb-4 shadow">
+        <img src="URBANPIPELINE.jpg" alt="Urban Pipeline Installation" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
+      </div>
+      <h3 class="text-lg font-bold mb-2 text-gray-800 headings">Urban Pipeline Installation</h3>
+      <p class="text-gray-700 text-sm">Efficient underground pipeline for water distribution in urban environments.</p>
+    </div>
+    
+    <!-- Project Card 2 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="400">
+      <div class="overflow-hidden rounded-xl mb-4 shadow">
+        <img src="SMARTMETER.jpg" alt="Smart Meter Upgrade" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
+      </div>
+      <h3 class="text-lg font-bold mb-2 text-gray-800 headings">Smart Meter Upgrade</h3>
+      <p class="text-gray-700 text-sm">Advanced smart meter installation for modern energy management.</p>
+    </div>
+    
+    <!-- Project Card 3 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="500">
+      <div class="overflow-hidden rounded-xl mb-4 shadow">
+        <img src="DIRECTIONALDRILLING.jpg" alt="Directional Drilling for Data Lines" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
+      </div>
+      <h3 class="text-lg font-bold mb-2 text-gray-800 headings">Directional Drilling</h3>
+      <p class="text-gray-700 text-sm">Non-invasive drilling for telecom cables in busy city areas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-500 py-4 text-center border-t border-gray-200 text-xs sm:text-sm">
+  <div class="container mx-auto px-4">
+    <p>&copy; 2025 Busy Hands. All rights reserved.</p>
+    <div class="mt-2 flex justify-center space-x-4">
+      <a href="#" class="hover:text-gray-700">Privacy Policy</a>
+      <a href="#" class="hover:text-gray-700">Terms & Conditions</a>
+      <a href="#" class="hover:text-gray-700">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Initialize AOS animations
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+  // Smooth sticky shrink effect
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('main-header');
+    if (window.scrollY > 60) {
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+  });
+</script>
+
+</body>
+</html>

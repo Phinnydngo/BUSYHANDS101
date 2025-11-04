@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Busy Hands - About Us</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- AOS (for animations) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    .headings {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Sticky Smooth Shrink Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: white;
+      transition: all 0.5s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    header.shrink {
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      opacity: 0.98;
+      backdrop-filter: blur(8px);
+    }
+
+    header.shrink img {
+      width: 2rem;
+      height: 2rem;
+      transition: all 0.4s ease;
+    }
+
+    header.shrink h1 {
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+    }
+
+    /* Logo */
+    .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+      object-fit: contain;
+    }
+
+    /* BUSY HANDS text (match contact/project pages) */
+    .brand-text {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #111827, #4b5563);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      text-transform: lowercase;
+      letter-spacing: 2px;
+    }
+
+    /* Navigation Links (text only) */
+    .nav-link {
+      color: #111827;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #111827;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #000;
+      transform: scale(1.02);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      transition: all 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      text-align: center;
+      color: #111827;
+      font-weight: 600;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      background-color: #f3f4f6;
+    }
+
+    /* Buttons */
+    .btn-black {
+      background-color: #000;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-black:hover {
+      background-color: #333;
+      transform: scale(1.03);
+    }
+
+    /* Glass containers */
+    .glass {
+      backdrop-filter: blur(10px) saturate(180%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="py-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 transition-all duration-300">
+      <div class="flex items-center space-x-3">
+        <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="logo-img">
+        <h1 class="text-2xl brand-text">busy hands</h1>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden flex items-center px-3 py-2 border rounded border-black text-black hover:bg-black hover:text-white transition">
+        <svg class="fill-current h-5 w-5" viewBox="0 0 20 20">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white w-full border-t border-gray-200">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="projects.html" class="mobile-nav-link">Projects</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="max-w-7xl mx-auto py-12 md:py-20 px-4">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-10 text-center headings brand-text" data-aos="fade-up">
+      About Busy Hands
+    </h2>
+
+    <div class="flex flex-col md:flex-row gap-8 items-center" data-aos="fade-up" data-aos-delay="100">
+      <img src="HOMEPAGE.jpg" alt="Our Team" class="w-full md:w-1/2 rounded-2xl shadow-xl hover:shadow-2xl transition">
+      <div class="glass w-full md:w-1/2 p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-4 headings brand-text">Our Mission</h3>
+        <p class="text-gray-700 mb-4">
+          At Busy Hands, our mission is to seamlessly integrate modern technology with traditional craftsmanship.
+          We deliver cutting-edge construction solutions that redefine industry standards and shape a smarter future.
+        </p>
+        <h3 class="text-2xl font-bold mb-4 headings brand-text">Our Values</h3>
+        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+          <li>Precision-driven innovation</li>
+          <li>Sustainable and safe practices</li>
+          <li>Client-focused excellence and integrity</li>
+          <li>Commitment to transformative results</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col md:flex-row-reverse gap-8 items-center" data-aos="fade-up" data-aos-delay="200">
+      <img src="ABOUT1.jpg" alt="Technology" class="w-full md:w-1/2 rounded-2xl shadow-xl hover:shadow-2xl transition">
+      <div class="glass w-full md:w-1/2 p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-4 headings brand-text">Who We Are</h3>
+        <p class="text-gray-700 mb-4">
+          Founded in 2013, Busy Hands has rapidly grown to become a trusted leader in innovative construction services,
+          with over a decade of experience. Our team is composed of skilled professionals who bring passion and expertise
+          to every project.
+        </p>
+        <p class="text-gray-700">
+          From directional drilling to smart metering, we've built a reputation for exceeding client expectations and
+          embracing technological advancement in every detail.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="text-2xl font-bold mb-4 headings brand-text">Join Us on Our Journey</h3>
+      <p class="text-gray-700 max-w-2xl mx-auto mb-6">
+        At Busy Hands, we're not just builders — we're visionaries. Join us as we shape a smarter, more sustainable future.
+        Let's build the extraordinary together.
+      </p>
+      <a href="contact.html" class="btn-black">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-gray-500 py-4 text-center border-t border-gray-200 text-sm">
+    &copy; 2025 Busy Hands. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 100 });
+
+    const header = document.getElementById('main-header');
+    const toggleButton = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let lastScroll = 0;
+
+    // Mobile Menu Toggle
+    toggleButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Smooth Sticky Shrink
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 50 && currentScroll > lastScroll) {
+        header.classList.add('shrink');
+      } else if (currentScroll < 50) {
+        header.classList.remove('shrink');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+</body>
+</html>
